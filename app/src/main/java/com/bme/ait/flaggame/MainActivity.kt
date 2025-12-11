@@ -11,6 +11,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.bme.ait.flaggame.ui.screen.gameScreen.GameScreen
+import com.bme.ait.flaggame.ui.screen.gameScreen.GameViewModel
 import com.bme.ait.flaggame.ui.screen.menuScreen.MenuScreen
 import com.bme.ait.flaggame.ui.screen.menuScreen.MenuViewModel
 import com.bme.ait.flaggame.ui.theme.FlagGameTheme
@@ -21,8 +26,26 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FlagGameTheme {
-                MenuScreen(viewModel = MenuViewModel())
+                val navController = rememberNavController()
+
+                NavHost(navController = navController, startDestination = "menu") {
+                    composable("menu") {
+                        MenuScreen(
+                            onPlayClick = {
+                                navController.navigate("game")
+                            },
+                            viewModel = MenuViewModel()
+                        )
+                    }
+                    composable("game") {
+                        GameScreen(
+                            viewModel = GameViewModel()
+                        )
+                    }
+                }
             }
         }
     }
 }
+
+
