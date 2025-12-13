@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -33,13 +34,15 @@ class MainActivity : ComponentActivity() {
                         MenuScreen(
                             onPlayClick = {
                                 navController.navigate("game")
-                            },
-                            viewModel = MenuViewModel()
+                            }
                         )
                     }
                     composable("game") {
                         GameScreen(
-                            viewModel = GameViewModel()
+                            viewModel = viewModel(),
+                            onNavigateBack = {
+                                navController.navigate("menu")
+                            }
                         )
                     }
                 }
@@ -47,5 +50,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-

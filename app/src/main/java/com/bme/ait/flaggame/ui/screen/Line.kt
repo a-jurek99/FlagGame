@@ -8,5 +8,5 @@ data class Line(
     val start: Offset,
     val end: Offset,
     val color: Color,
-    val strokeWidth: Float = 5f
+    val strokeWidth: Float = 5f,
 )

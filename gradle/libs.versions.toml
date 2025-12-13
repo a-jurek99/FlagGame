@@ -32,6 +32,7 @@ coilCompose = "2.7.0" # downloading images...
 # Placeholder
 placeholder = "1.0.2"
 playServicesContextmanager = "9.4.0"
+generativeai = "0.9.0"
 
 [libraries]
 # Core Navigation 3 libraries
@@ -75,6 +76,7 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 play-services-contextmanager = { group = "com.google.android.gms", name = "play-services-contextmanager", version.ref = "playServicesContextmanager" }
+generativeai = { group = "com.google.ai.client.generativeai", name = "generativeai", version.ref = "generativeai" }
 
 [plugins]
 jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinSerialization"}
